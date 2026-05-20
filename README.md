@@ -39,8 +39,7 @@ Splunk qurue:
 | bin _time span=1m
 | stats count by host, _time
 | where count > 50`
-### Nmap:
-![image alt]()
+
 ### Splunk:
 ![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/797b17f4bbecb6a27621548b3d38e73b5475f05e/Project%20images/Splunk1.png)
 
@@ -57,11 +56,12 @@ Hydra:
 
 Splunk qurue:
 
-`index=* EventCode=4625 ComputerName="TARGET-PC"`
-### Hydra:
-![image alt]()
+`index=* EventCode=4625 ComputerName="TARGET-PC"
+| stats count by Account_Name, Source_Network_Address
+| where count > 10`
+
 ### Splunk:
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/797b17f4bbecb6a27621548b3d38e73b5475f05e/Project%20images/Splunk2.png)
+![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/68e0a8f4fb1be87d01eff5c827610842ef7c6b50/Project%20images/Splunk3.png)
 
 
 #### Brute Force Detection
