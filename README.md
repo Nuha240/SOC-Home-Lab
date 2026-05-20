@@ -20,11 +20,7 @@ This project simulates common cyber attacks in a SOC environment, including port
 
 #### Tools Used:
 
-- Kali Linux (Vms)
-
-- Hydra
-
-- Nmap
+- Kali Linux (Vms)(Hydra, Nmap)
 
 - Windows (Vms)
 
@@ -43,24 +39,14 @@ Splunk qurue:
 | bin _time span=1m
 | stats count by host, _time
 | where count > 50`
-
-### Kali(Nmap):
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Klai%20nmap.png)
-
+### Nmap:
+![image alt]()
 ### Splunk:
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Splunk1.png)
+![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/797b17f4bbecb6a27621548b3d38e73b5475f05e/Project%20images/Splunk1.png)
 
-#### The attack was identified based on:
-
-
-• Suspicious network activity
-
-• Reconnaissance phase
-
-• Attacker gathering info
-
-#### Detection Result:
-Suspicious high number of connection attempts indicating possible reconnaissance activity.
+#### Port Scanning Detection
+- Multiple connection attempts across different ports.
+- Detected using Splunk logs.
 
 __________________
 
@@ -71,40 +57,28 @@ Hydra:
 
 Splunk qurue:
 
-`index=* EventCode=4625 ComputerName="TARGET-PC"
-| stats count by Account_Name, Source_Network_Address
-| where count > 10`
-
-### Kali(Hydra):
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Kali%20hydra.png)
+`index=* EventCode=4625 ComputerName="TARGET-PC"`
+### Hydra:
+![image alt]()
 ### Splunk:
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Splunk3.png)
-![image](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Splunk%20search3.png)
-### Event viewer:
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Event%20viewer1.png)
-
-#### The attack was identified based on:
-
-• High number of failed login attempts
-
-• Repeated attempts within a short time
-
-• Same source IP address
+![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/797b17f4bbecb6a27621548b3d38e73b5475f05e/Project%20images/Splunk2.png)
 
 
-#### Detection Result:
-Multiple failed login attempts indicating possible brute force activity.
+#### Brute Force Detection
+- Multiple failed login attempts detected from a single source IP.
+- Windows Event ID: 4625
+- Splunk used to identify repeated authentication failures.
 ____________________
 
 #### Servicenow:
 
 ### Create incident port scanning:
 
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Servicenow%20port%20scanning.png)
+![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/797b17f4bbecb6a27621548b3d38e73b5475f05e/Project%20images/Servicenow%20port%20scanning.png)
 
 ### Create incident brute force:
 
-![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/5d44bc4e9b6e939f7cb44d366b64c05ac2d1a51f/Project%20imgs/Servicenow%20brute%20force.png)
+![image alt](https://github.com/Nuha240/SOC-Home-Lab/blob/797b17f4bbecb6a27621548b3d38e73b5475f05e/Project%20images/Servicenow%20brute%20force.png)
 
 
 #### MITRE ATT&CK Mapping:
